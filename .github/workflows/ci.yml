@@ -23,7 +23,8 @@ jobs:
         uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: ./app/Dockerfile
-
+          failure-threshold: error
+          
       - name: Construir la imagen Docker
         run: |
           docker build -t mi-app:${{ github.sha }} ./app
